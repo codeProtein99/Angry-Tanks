@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Simulation Game - Helper Guide</title>
+    <link rel="stylesheet" href="help.css">
+</head>
+<body>
+    <div class="container">
+        
+        <h1>Drone Simulation Game - Helper Guide</h1>
+
+        <section class="section">
+            <h2>ABOUT ME</h2>
+            <p>
+                Hi there!! I am<strong>Paritosh Kumar</strong> a graduarte from National Institute of 
+                Technology Patna. I work for Zensar Technologies Private Limited as Junior software Engineer. 
+                Along with this, I am firstly, an employ of Aurum Signature Studios by Games Global as a junior Q.A.
+            </p>
+            <p>
+                <strong>Post Script:</strong> This project was assigned to me by my team lead as part of a skill up effort.
+                 It involved developing an interactive game to showcase my skills and creativity.
+                The assignment aimed to test the ability to implement logic and designing effectively.
+            </p>
+        </section>
+
+        <h1>Game Featues</h1>
+
+        <section class="section">
+            <h2>PLACE</h2>
+            <p>
+                The <strong>PLACE</strong> command will place the toy drone on the surface at position X,Y and facing
+                NORTH, SOUTH, EAST, or WEST. The origin (0,0) is the SOUTHWEST most corner.
+            </p>
+            <p>
+                <strong>Note:</strong> The first valid command to the drone is a PLACE command. After the PLACE command,
+                any sequence of commands may be issued, including another PLACE command. All commands before the first
+                valid PLACE command will be ignored.
+            </p>
+        </section>
+        
+        <section class="section">
+            <h2>BOMBING</h2>
+            <img src="bomb-12139_128.gif" alt="" srcset="">
+            <p>
+                At Random intervals of time the grid boxes will be bomberbarded randomly. The aim is to save 
+                our tank from these bomb attacks. Once it falls on the same box where our tank is the 
+                tank vaporizes and game gets over.
+            </p>
+        </section>
+
+        <h1>Game Controls</h1>
+
+        <section class="section">
+            <h2>MOVE</h2>
+            <img src="M.png" alt="" srcset="">
+            <p>
+                The <strong>MOVE</strong> command will move the toy drone one unit forward in the direction it is currently
+                facing.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>LEFT</h2>
+            <img src="L.png" alt="" srcset="">
+            <p>
+                The <strong>LEFT</strong> command will rotate the drone 90 degrees to the left (counter-clockwise) without
+                changing the position of the drone.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>RIGHT</h2>
+            <img src="R.png" alt="" srcset="">
+            <p>
+                The <strong>RIGHT</strong> command will rotate the drone 90 degrees to the right (clockwise) without
+                changing the position of the drone.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>REPORT</h2>
+            <img src="message.png" alt="" srcset="" width="50%">
+            <p>
+                The <strong>REPORT</strong> command will announce the X,Y position and the facing direction (F) of the
+                drone. This can be in any form.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>ATTACK</h2>
+            <img src="X.png" alt="" srcset="">
+            <p>
+                The <strong>ATTACK</strong> command will cause the drone to fire a projectile 2 units ahead of its current
+                position and explode on the surface.
+            </p>
+            <p>
+                If there are not 2 free spaces on the surface in the direction that the drone is facing, the ATTACK command
+                should be ignored.
+            </p>
+        </section>
+    </div>
+</body>
+</html>

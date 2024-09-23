@@ -1,0 +1,257 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #000, #444); /* Basic background color */
+    position: relative;
+}
+
+:root{
+    --container_height:200px;
+    --button_padding_top: 15px; 
+    --button_padding_sides: 25px;
+    --button_font_size: 18px;
+    --button_width: 200px;
+}
+
+.container {
+    display: flex;
+    /* flex-direction: column;  */
+    gap: 20px; /* Space between buttons */
+    position: relative; /* For positioning the background animation */
+    z-index: 1; /* Ensure buttons are above the background */
+    opacity: 0; /* Initially hidden */
+    animation: fade-in 1s ease forwards 3s; /* Fade in after tank animation completes */
+    margin-top: var(--top_margin);
+    height: var(--container_height);
+    align-items:flex-start;
+}
+
+/* Button Styles */
+
+.animated-button {
+    padding: var(--button_padding_top) var(--button_padding_sides);
+    font-size: var(--button_font_size);
+    border: 2px solid #fff;
+    background: rgb(127, 136, 129);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    border-radius: 5px; 
+    width: var(--button_width); 
+    text-align: center;
+}
+
+.animated-button:hover {
+    transform: scale(1.1); 
+    border-color: #e8e0e0;
+    background: rgb(159, 125, 42); 
+}
+
+/* Tank Animation */
+.tank {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    max-width: 100%;
+    max-height: 100%;
+    background: url('background2.png') no-repeat center/contain;
+    background-size: cover;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Initially hidden with scale(0) */
+    animation: scale-up 4s ease forwards; /* Scale up animation */
+    z-index: 0; /* Behind the buttons */
+
+}
+
+/* Keyframe for tank scaling */
+@keyframes scale-up {
+    0% {
+        transform: translate(-50%, -50%) scale(0); /* Start scaled down */
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1); /* Full size */
+    }
+}
+
+/* Keyframe for buttons' fade-in effect */
+@keyframes fade-in {
+    0% {
+        opacity: 0; /* Fully hidden */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+    }
+}
+
+
+.blast {
+    position: absolute;
+    width: 100px; /* Adjust the size of the blast image as necessary */
+    height: 100px;
+    z-index: 1;
+}
+
+.blast img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+/*Position each blast at a different location on the screen */
+.blast:nth-child(1) {
+    top: 10%;
+    left: 5%;
+}
+
+.blast:nth-child(2) {
+    top: 20%;
+    left: 50%;
+}
+
+.blast:nth-child(3) {
+    top: 60%;
+    left: 40%;
+}
+
+.blast:nth-child(4) {
+    top: 50%;
+    left: 80%;
+}
+
+.blast:nth-child(5) {
+    top: 30%;
+    left: 15%;
+}
+
+.blast:nth-child(6) {
+    top: 70%;
+    left: 30%;
+}
+
+.blast:nth-child(7) {
+    top: 80%;
+    left: 60%;
+}
+
+.blast:nth-child(8) {
+    top: 40%;
+    left: 70%;
+}
+
+.blast:nth-child(9) {
+    bottom: 15%;
+    right: 10%;
+    
+}
+
+.blast:nth-child(10) {
+    top: 5%;
+    left: 85%;
+    
+}
+
+.blast:nth-child(11) {
+    top: 65%;
+    left: 10%;
+}
+.blast:nth-child(12) {
+    top: 5%;
+    left: 30%;
+}
+.blast:nth-child(13) {
+    top: 86%;
+    left: 25%;
+}
+.blast:nth-child(14) {
+    top: 65%;
+    left: 10%;
+}
+.blast:nth-child(15) {
+    top: 65%;
+    left: 10%;
+}
+.blast:nth-child(16) {
+    top: 5%;
+    right: 24%;
+}
+.blast:nth-child(15) {
+    top: 65%;
+    left: 10%;
+}
+
+/*Mobile Version*/
+
+/* Media query for 768px width devices */
+@media (max-width: 768px) {
+    .blast {
+        width: 80px; /* Adjusting size for tablets */
+        height: 80px;
+    }
+
+    .blast:nth-child(1) { top: 8%; left: 10%; }
+    .blast:nth-child(2) { top: 18%; left: 55%; }
+    .blast:nth-child(3) { top: 50%; left: 45%; }
+    .blast:nth-child(4) { top: 40%; left: 75%; }
+    .blast:nth-child(5) { top: 28%; left: 15%; }
+    .blast:nth-child(6) { top: 65%; left: 35%; }
+    .blast:nth-child(7) { top: 70%; left: 60%; }
+    .blast:nth-child(8) { top: 38%; left: 68%; }
+    .blast:nth-child(9) { bottom: 12%; right: 15%; }
+    .blast:nth-child(10) { top: 8%; left: 80%; }
+    .blast:nth-child(11) { top: 60%; left: 12%; }
+    .blast:nth-child(12) { top: 15%; left: 40%; }
+    .blast:nth-child(13) { top: 75%; left: 22%; }
+    .blast:nth-child(14) { top: 60%; left: 18%; }
+    .blast:nth-child(15) { top: 60%; left: 18%; }
+    .blast:nth-child(16) { top: 6%; right: 25%; }
+
+    :root{
+        --container_height:200px;
+        --button_padding_top: 12px; 
+        --button_padding_sides: 20px;
+        --button_font_size: 16px;
+        --button_width: 180px;
+    }
+}
+
+
+/* For mobile devices (max-width: 480px) */
+/* Media query for 480px width devices */
+@media (max-width: 480px) {
+    .blast {
+        width: 60px; /* Adjusting size for smaller screens */
+        height: 60px;
+    }
+
+    .blast:nth-child(1) { top: 5%; left: 5%; }
+    .blast:nth-child(2) { top: 15%; left: 45%; }
+    .blast:nth-child(3) { top: 55%; left: 35%; }
+    .blast:nth-child(4) { top: 45%; left: 70%; }
+    .blast:nth-child(5) { top: 25%; left: 10%; }
+    .blast:nth-child(6) { top: 65%; left: 25%; }
+    .blast:nth-child(7) { top: 75%; left: 55%; }
+    .blast:nth-child(8) { top: 35%; left: 65%; }
+    .blast:nth-child(9) { bottom: 10%; right: 5%; }
+    .blast:nth-child(10) { top: 2%; left: 80%; }
+    .blast:nth-child(11) { top: 60%; left: 5%; }
+    .blast:nth-child(12) { top: 10%; left: 35%; }
+    .blast:nth-child(13) { top: 70%; left: 20%; }
+    .blast:nth-child(14) { top: 60%; left: 15%; }
+    .blast:nth-child(15) { top: 60%; left: 15%; }
+    .blast:nth-child(16) { top: 5%; right: 20%; }
+
+    :root{
+        --container_height:200px;
+        --button_padding_top: 10px; 
+        --button_padding_sides: 15px;
+        --button_font_size: 14px;
+        --button_width: 140px;
+    }
+}
