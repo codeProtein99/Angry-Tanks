@@ -8,7 +8,21 @@ let currentRotation = 0; // Current rotation of the tank
 
 //Function to return the grid value of the cell
 let giveCoordinates = () =>{
-    let cell = document.getElementById(`box${lastPlacedPos}`).innerText; 
+
+    let cell;
+
+    if(lastPlacedPos == 0 || lastPlacedPos == 1 || lastPlacedPos == 2 || lastPlacedPos == 3 || lastPlacedPos == 4 || lastPlacedPos == 5 ||
+        lastPlacedPos == 6 || lastPlacedPos == 7 || lastPlacedPos == 8 || lastPlacedPos == 9){
+
+            cell = document.getElementById(`box${lastPlacedPos.toString().padStart(2, '0')}`).innerText;
+    }
+    else{
+        cell = document.getElementById(`box${lastPlacedPos}`).innerText;
+    }
+
+    console.log(lastPlacedPos,typeof(lastPlacedPos));
+
+     
     
     let xValue = cell.slice(0,1);
     let yValue = cell.slice(1,2);
@@ -18,7 +32,25 @@ let giveCoordinates = () =>{
 
 // Function to reset a cell to its original state
 let resetCell = (cellId) => {
-    let cell = document.getElementById(`box${cellId}`);
+
+    console.log("Reset cell runs");
+    console.log('The cell ID receoved is',cellId);
+
+    let cell;
+
+    if(cellId == 0 || cellId == 1 || cellId == 2 || cellId == 3 || cellId == 4 || cellId == 5 ||
+        cellId == 6 || cellId == 7 || cellId == 8 || cellId == 9){
+
+        //if X coordinate is 0 basically
+        cell = document.getElementById(`box${cellId.toString().padStart(2, '0')}`);
+        console.log('This condition works');
+        console.log(cell);
+    }
+    else{
+        //So if the cell has both non-zero figures
+        cell = document.getElementById(`box${cellId}`);
+    }
+    
     cell.style.backgroundImage = 'none';
     cell.style.border = '1px solid whitesmoke';
     cell.style.borderRadius = '5px';
@@ -30,7 +62,23 @@ let resetCell = (cellId) => {
 
 // Function to place the tank in a new cell with the same rotation
 let placeTank = (cellId) => {
-    let cell = document.getElementById(`box${cellId}`);
+
+    console.log('The id received is',cellId,typeof(cellId));
+
+    let cell;
+
+    if(cellId == 0 || cellId == 1 || cellId == 2 || cellId == 3 || cellId == 4 || cellId == 5 ||
+        cellId == 6 || cellId == 7 || cellId == 8 || cellId == 9){
+
+        //if X coordinate is 0 basically
+        cell = document.getElementById(`box${cellId.toString().padStart(2, '0')}`);
+        console.log('This condition works');
+        console.log(cell);
+    }
+    else{
+        //So if the cell has both non-zero figures
+        cell = document.getElementById(`box${cellId}`);
+    }
     cell.style.border = "none";
     cell.style.padding = "0";
     cell.style.margin = "0";
@@ -42,11 +90,16 @@ let placeTank = (cellId) => {
 
 // Function to move the tank
 let move = (cellId, directionIndex) => {
+
+    console.log("The move function runs-->",cellId,typeof(cellId));
     let gridSize = 10;
     let currentPosCell = document.getElementById(`box${cellId}`);
 
     let idNumberX = Math.floor(cellId / 10);
     let idNumberY = cellId % 10;
+
+    console.log("First time x,y values:", idNumberX,typeof(idNumberX),idNumberY,typeof(idNumberY));
+    
 
     const direction = directions[directionIndex];
     let newIdNumberX = idNumberX;
@@ -76,11 +129,11 @@ let move = (cellId, directionIndex) => {
     let newPositionCell = document.getElementById(`box${newIdNumberX}${newIdNumberY}`);
 
     if (newPositionCell) {
-        newPositionCell.style.border = "none";  // Remove border
-        newPositionCell.style.padding = "0";  // Remove padding
+        newPositionCell.style.border = "none"; 
+        newPositionCell.style.padding = "0";  
         newPositionCell.style.margin = "0";
-        newPositionCell.style.background = `url('tank1.png') no-repeat center center`;  // Set the tank image as background
-        newPositionCell.style.backgroundSize = "contain";  // Make sure the image covers the entire grid cell
+        newPositionCell.style.background = `url('tank1.png') no-repeat center center`; 
+        newPositionCell.style.backgroundSize = "contain"; 
         newPositionCell.style.boxSizing = "border-box";
         newPositionCell.style.transform = `rotate(${currentRotation}deg)`;  // Apply the previous rotation
 
@@ -100,7 +153,15 @@ let move = (cellId, directionIndex) => {
 
 // Function to update the drone's direction
 let droneDirection = (newDirection) => {
-    const droneElementPostion = document.getElementById(`box${lastPlacedPos}`);
+
+    let droneElementPostion;
+    if(lastPlacedPos == 0 || lastPlacedPos == 1 || lastPlacedPos == 2 || lastPlacedPos == 3 || lastPlacedPos == 4 || lastPlacedPos == 5 ||
+        lastPlacedPos == 6 || lastPlacedPos == 7 || lastPlacedPos == 8 || lastPlacedPos == 9){
+            droneElementPostion =  document.getElementById(`box${lastPlacedPos.toString().padStart(2, '0')}`);
+    }
+    else{
+        droneElementPostion = document.getElementById(`box${lastPlacedPos}`);
+    }
     let rotationAngle = 0;
 
     switch (newDirection) {
@@ -205,7 +266,7 @@ array.forEach(element => {
             isTankPlaced = true;
             console.log("Tank placed at:", lastPlacedPos);
         } else {
-            resetCell(lastPlacedPos); // Reset the previous cell
+            resetCell(lastPlacedPos); 
             placeTank(cellId); // Place the tank in the new cell
             lastPlacedPos = cellId; // Update the last placed position
             droneDirection(directions[currentDirectionIndex]); // Maintain the direction
@@ -252,14 +313,21 @@ function bombFeature(){
     let randomCellId = Math.floor((Math.random() * 100));
     let randomCellIdString = (randomCellId < 10) ? `0${randomCellId}` : `${randomCellId}`;
 
+    let cell = document.getElementById(`box${randomCellIdString}`);
+
     document.getElementById(`box${randomCellIdString}`).style.background = "url('bomb-12139_128.gif') no-repeat center center";
     
     //If the bomb hits my tank.
-    if (lastPlacedPos === randomCellIdString) {
+    if (lastPlacedPos == randomCellIdString) {
+            cell.style.background = "url('bomb-12139_128.gif') no-repeat center center";
+            cell.style.border = '3px solid red';
+            cell.style.borderRadius = '5px';
+            cell.style.transform = 'rotate(0deg)';
+            cell.style.boxSizing = "border-box";
         setTimeout(() => {
             alert('Game Over! You hit a bomb.');
             window.location.href = "gameover.html"; // Redirect to the Game Over page
-        }, 1000);  // A short delay to show the bomb explosion before redirecting
+        }, 2000);
     }
 
     setTimeout(() => {
@@ -275,6 +343,7 @@ setInterval(bombFeature, i*5);
 setInterval(bombFeature, i*7);
 setInterval(bombFeature, i*9);
 setInterval(bombFeature, i*11);
+setInterval(bombFeature, i*13);
 
 //Click the dialogue box button to fix
 document.querySelector('#dialogue .lower-box button').addEventListener('click',function(){

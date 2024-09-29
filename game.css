@@ -355,8 +355,9 @@ body{
     .info {
         height: 40px;
         width: 40px;  
-        left: 15px;
-        top: 480px;
+        left: 5%;
+        top: auto;
+        bottom: 5%;
     }
 
     .info i {
@@ -368,9 +369,9 @@ body{
     .info {
         height: 35px;
         width: 35px;
-        left: 10px;
+        left: 5%;
         top: auto;
-        bottom: 20px;  
+        bottom: 5%;  
     }
 
     .info i {
@@ -383,9 +384,9 @@ body{
     .info {
         height: 40px;
         width: 40px;
-        left: 15px;
+        left: 5%;
         top: auto;
-        bottom: 15px;  
+        bottom: 5%;  
     }
 
     .info i {
@@ -398,19 +399,14 @@ body{
     .info {
         height: 45px;
         width: 45px;
-        left: 20px;
+        left: 5%;
         top: auto;
-        bottom: 25px;  
+        bottom: 5%;  
     }
 
     .info i {
         font-size: 125%;  
     }
-}
-
-/* Default style: hide the dialogue box */
-#dialogue {
-    display: none;
 }
 
 /* Media query to detect landscape orientation and a max-width for mobile screens */
@@ -433,7 +429,7 @@ body{
 }
 
 /* Show the landscape message in landscape mode on mobile */
-@media only screen and (orientation: landscape) and (max-width: 900px) {
+@media only screen and (orientation: landscape) and (max-width: 915px) {
     body .full-container,
     body #dialogue {
         display: none; /* Hide game content */

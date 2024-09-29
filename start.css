@@ -5,7 +5,7 @@ body {
     align-items: end;
     justify-content: center;
     overflow: hidden;
-    background: linear-gradient(to bottom, #000, #444); /* Basic background color */
+    background: linear-gradient(to bottom, #000, #444); 
     position: relative;
 }
 
@@ -19,12 +19,11 @@ body {
 
 .container {
     display: flex;
-    /* flex-direction: column;  */
-    gap: 20px; /* Space between buttons */
-    position: relative; /* For positioning the background animation */
-    z-index: 1; /* Ensure buttons are above the background */
-    opacity: 0; /* Initially hidden */
-    animation: fade-in 1s ease forwards 3s; /* Fade in after tank animation completes */
+    gap: 20px; 
+    position: relative; 
+    z-index: 1; 
+    opacity: 0; 
+    animation: fade-in 1s ease forwards 3s;
     margin-top: var(--top_margin);
     height: var(--container_height);
     align-items:flex-start;
@@ -62,36 +61,36 @@ body {
     background-size: cover;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%) scale(0); /* Initially hidden with scale(0) */
-    animation: scale-up 4s ease forwards; /* Scale up animation */
-    z-index: 0; /* Behind the buttons */
+    transform: translate(-50%, -50%) scale(0); 
+    animation: scale-up 4s ease forwards; 
+    z-index: 0;
 
 }
 
 /* Keyframe for tank scaling */
 @keyframes scale-up {
     0% {
-        transform: translate(-50%, -50%) scale(0); /* Start scaled down */
+        transform: translate(-50%, -50%) scale(0); 
     }
     100% {
-        transform: translate(-50%, -50%) scale(1); /* Full size */
+        transform: translate(-50%, -50%) scale(1);
     }
 }
 
 /* Keyframe for buttons' fade-in effect */
 @keyframes fade-in {
     0% {
-        opacity: 0; /* Fully hidden */
+        opacity: 0; 
     }
     100% {
-        opacity: 1; /* Fully visible */
+        opacity: 1;
     }
 }
 
 
 .blast {
     position: absolute;
-    width: 100px; /* Adjust the size of the blast image as necessary */
+    width: 100px; 
     height: 100px;
     z-index: 1;
 }
@@ -191,7 +190,7 @@ body {
 /* Media query for 768px width devices */
 @media (max-width: 768px) {
     .blast {
-        width: 80px; /* Adjusting size for tablets */
+        width: 80px;
         height: 80px;
     }
 
@@ -226,7 +225,7 @@ body {
 /* Media query for 480px width devices */
 @media (max-width: 480px) {
     .blast {
-        width: 60px; /* Adjusting size for smaller screens */
+        width: 60px;
         height: 60px;
     }
 
